@@ -1,13 +1,30 @@
 注文情報入力
-<h1>支払方法</h1>
+<h2>支払方法</h2>
 <div>
   <%= form_with model: @order, url: orders_show_path , method: :post do |f| %>
   <%= f.radio_button :payment_method, "credit_card" %>
   <%= f.label :payment_method_credit_card, "クレジットカード" %>
-
+<br>
   <%= f.radio_button :payment_method, "transfer" %>
   <%= f.label :payment_method_transfer, "銀行振込" %>
+</br>
+  <h2>お届け先</h2>
+  <%= f.radio_button :payment_method, "your_address" %>
+  <%= f.label :payment_method_your_address, "ご自身の住所" %>
+  <br>
+   <%= current_customer.postcode %>
+  </br>
 
+<br>
+  <%= f.radio_button :payment_method, "select_from_registered_addresses" %>
+  <%= f.label :payment_method_select_from_registered_addresses, "登録済住所から選択" %>
+</br>
+<br>
+  <%= f.radio_button :payment_method, "new_delivery_address" %>
+  <%= f.label :payment_method_new_delivery_address, "新しいお届け先" %>
+</br>
+<br>
    <%= f.submit 'Create Book', class: "btn btn-success"%>
+</br>
 <% end %>
 </div>
