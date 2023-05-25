@@ -1,1 +1,13 @@
-注文情報入力画面
+注文情報入力
+<h1>支払方法</h1>
+<div>
+  <%= form_with model: @order, url: orders_show_path , method: :post do |f| %>
+  <%= f.radio_button :payment_method, "credit_card" %>
+  <%= f.label :payment_method_credit_card, "クレジットカード" %>
+
+  <%= f.radio_button :payment_method, "transfer" %>
+  <%= f.label :payment_method_transfer, "銀行振込" %>
+
+   <%= f.submit 'Create Book', class: "btn btn-success"%>
+<% end %>
+</div>
