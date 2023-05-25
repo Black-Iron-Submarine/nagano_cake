@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resources :items, only: [:index, :show]
     resource :customers, only: [:show, :update]
-    get '/customers/information/edit' => 'customers#edit'
     get '/customers/is_deleted' => 'customers#is_deleted'
     patch '/customers/destroy' => 'customers#destroy'
     resources :cart_items, only: [:index, :update, :create]
