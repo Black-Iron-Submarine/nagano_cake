@@ -1,0 +1,10 @@
+<%= @item.image %>
+<p>商品名：<%= @item.name %></p>
+<p>商品説明：<%= @item.explanation %></p>
+<p>ジャンル：<%= @item.genre_id %></p>
+<p>税込価格：<%= @item.price_without_tax %></p>
+<p>販売ステータス：
+ <% if @item.sales_status %>販売中
+ <% else %>販売停止中
+ <% end %>
+</p>
