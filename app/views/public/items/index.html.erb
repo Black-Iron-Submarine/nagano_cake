@@ -1,0 +1,7 @@
+<% @items.each do |item| %>
+<%= image_tag item.image, size: "200x200" %>
+<%= link_to item_path(item.id) do %>
+<%= item.name %>
+<% end %>
+¥<%= item.add_tax_price_without_tax %>
+<% end %>
