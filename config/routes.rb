@@ -17,9 +17,10 @@ Rails.application.routes.draw do
     patch '/customers/destroy' => 'customers#destroy'
     resources :cart_items, only: [:index, :update, :create]
     delete '/cart_items/destroy' => 'cart_items#destroy_all'
-    resources :orders, only: [:new, :index, :show]
+
     post '/orders/show' => 'orders#confirm'
     get '/orders/index' => 'orders#complete'
+    resources :orders, only: [:new, :index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
  namespace :admin do
