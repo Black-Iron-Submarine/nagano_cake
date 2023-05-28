@@ -4,6 +4,8 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = current_customer.cart_items
+    @freight = 800
+    @sum = 0
   end
 
   def complete
