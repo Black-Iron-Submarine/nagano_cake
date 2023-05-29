@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get '/about' => 'homes#about'
     resources :items, only: [:index, :show]
-    resource :customers, only: [:show, :update]
+    resource :customers, only: [:show, :edit, :update]
     get '/customers/is_deleted' => 'customers#is_deleted'
     patch '/customers/destroy' => 'customers#destroy'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
