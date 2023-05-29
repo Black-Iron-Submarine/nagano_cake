@@ -15,5 +15,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @total = 0
   end
 end
