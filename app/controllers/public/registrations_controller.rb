@@ -2,9 +2,11 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   def new
+    super
   end
 
   def create
+    super
   end
 
   # before_action :configure_sign_up_params, only: [:create]
