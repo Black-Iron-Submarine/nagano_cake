@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2023_05_28_040755) do
     t.integer "genre_id"
     t.string "name"
     t.text "explanation"
-    t.decimal "price_without_tax"
+    t.integer "price_without_tax"
     t.boolean "sales_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

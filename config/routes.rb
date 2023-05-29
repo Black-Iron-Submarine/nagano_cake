@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :registrations
-  devise_for :customers, skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
+
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
@@ -13,9 +10,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get '/about' => 'homes#about'
     resources :items, only: [:index, :show]
-    resource :customers, only: [:show, :edit, :update]
+    get '/customers/information/edit' => 'customers#edit'
     get '/customers/is_deleted' => 'customers#is_deleted'
     patch '/customers/destroy' => 'customers#destroy'
+    resource :customers, only: [:show, :update]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :update, :create, :destroy]
 
@@ -32,5 +30,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
  end
+ devise_for :customers, skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
