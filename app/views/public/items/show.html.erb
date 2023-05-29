@@ -1,10 +1,19 @@
-
-<%= image_tag @item.image, size: "200x200" %>
-商品名：<%= @item.name %>
-¥<%= @item.add_tax_price_without_tax %>
-<p>商品説明：<%= @item.explanation %></p>
-<%= form_with model: @cart_item do |f| %>
-<%= f.hidden_field :item_id, :value => @item.id %>
-<%= f.select :quantity, *[1..10] %>
-<%= f.submit 'カートに入れる' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag @item.image, size: "200x200" %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h3><%= @item.name %></h3>
+      <p><%= @item.explanation %></p>
+      <p>¥<%= @item.add_tax_price_without_tax %>(税込)</p>
+      <p>
+        <%= form_with model: @cart_item do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.select :quantity, *[1..10] %>
+          <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+         <% end %>
+      </p>
+    </div>
+  </div>
+</div>
